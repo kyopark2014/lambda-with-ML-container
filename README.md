@@ -1,4 +1,5 @@
-# lambda-with-container
+# Container image를 이용하여 Lambda로 ML inference 구축하기 
+
 It describes how to use container image for lambda deployment in order to use ML algorithms.
 
 
