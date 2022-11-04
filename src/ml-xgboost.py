@@ -11,15 +11,15 @@ print("model: ", model_name)
 
 model.load_model(model_name)
 
-def handler(event, context):
+def handler(event):
     body = event["body-json"]
     print('body: ', body)
 
     # inference
-    results = model.predict(body)
-    print('result:', results)
+#    results = model.predict(body)
+#    print('result:', results)
 
-    return {
-        'statusCode': 200,
-        'body': results.tolist()
-    }
+#    return {
+#        'statusCode': 200,
+#        'body': results.tolist()
+#    }
