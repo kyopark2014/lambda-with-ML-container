@@ -31,3 +31,5 @@ CMD [ "app.handler" ]
 [[AWS Lambda] Container Image 기반 Lambda 함수 구현](https://wooono.tistory.com/337)
 
 [[AWS Lambda] 서버리스 환경에서 ML 추론 작업 수행해보기](https://manchann.tistory.com/42)
+
+[@aws-cdk/aws-ecr module](https://docs.aws.amazon.com/cdk/api/v1/docs/aws-ecr-readme.html)
