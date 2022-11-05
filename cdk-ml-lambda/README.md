@@ -72,3 +72,17 @@ Lambda를 외부에서 접속할 수 있도록 Endpoint로 지정합니다. 이�
 Outputs:
 CdkMlLambdaStack.EndpointUrl = https://samplet4zi2bqfx6k42fo26agi0kcght.lambda-url.ap-northeast-2.on.aws/
 ```
+
+## 인프라 설치 및 삭제
+
+인프라 설치는 CDK 폴더에서 아래 명령어를 이용해 수행합니다. 
+
+```java
+cdk deploy
+```
+
+인프라 삭제는 아래 명령어를 이용합니다. 
+
+```java
+cdk destroy
+```
