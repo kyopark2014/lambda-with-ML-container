@@ -58,7 +58,7 @@ Dockerfile로 Docker image를 생성한 후에 Lambda에서 해당 이미지를 
 
 ## 클라이언트에서 추론 요청
 
-아래와 같이 Node로 만들 클라이언트 및 Postman에서 추론 요청을 시험해 볼수 있습니다. [Endpoint 주소](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda#endpoint-address)는 CDK로 인프라 생성할때 확인 할 수 있지만, Lambda Console 메뉴의 "Function URL"에서도 확인 가능합니다. 또한 테스트용 셈플은 [samples.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/samples.json)을 이용합니다. 
+아래와 같이 Node.JS를 이용한 클라이언트 및 Postman에서 추론 요청 동작을 확인할 수 있습니다. [Endpoint 주소](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda#endpoint-address)는 CDK로 인프라 생성할때 확인 할 수 있지만, Lambda Console 메뉴의 "Function URL"에서도 확인 가능합니다. 또한 테스트용 셈플은 [samples.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/samples.json)을 이용합니다. 
 
 ### Node 사용시
 
