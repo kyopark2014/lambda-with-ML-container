@@ -1,7 +1,7 @@
 # Container를 이용하여 Lambda로 ML inference 구현하기 
 
 
-## Wine Quality을 측정하긴 위한 머신러닝 알고리즘 
+## Wine Quality을 측정하는 머신러닝 알고리즘 
 
 1) 데이터의 준비
 
