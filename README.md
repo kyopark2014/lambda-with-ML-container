@@ -30,7 +30,7 @@ Wine Quality을 예측을 위해 머신러닝 알고리즘 Lambda에 활용하�
 
 [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)는 대표적인 IaC(Infrastructure as Code) 툴로서, Docker Image를 빌드하고 [Amazon ECR](https://aws.amazon.com/ko/ecr/)에 업로드한 후 Lambda에서 활용할 수 있습니다. 또한, Lambda를 생성된 추론용 Rest API를 외부에서 접속할 수 있도록 [Lambda Functional URL](https://github.com/kyopark2014/lambda-function-url)을 활용합니다. 
 
-[](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda)
+[AWS CDK로 머신러닝 추론을 위한 Lambda Functional URL 구현하기](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda)에서는 인프라 선언, 생성 및 삭제 방법에 대해 상세히 설명하고 있습니다. 
 
 ### Dockerfile
 
