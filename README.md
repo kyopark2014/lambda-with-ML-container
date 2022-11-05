@@ -93,9 +93,9 @@ const roleArn = 'arn:aws:iam::1234567890:role/CdkMlLambdaStack-fnUrlRoleF3FB2EB9
 
 ## Image Testing
 
-Docker를 위해 빌드된 이미지의 조건이 학습시의 Local 또는 Sagemaker등의 환경과 다른 경우에 빌드후에 정상적으로 동작하지 않을수 있습니다. 이를 로그를 통해 확인할 수 있지만, 아래와 같이 docker 이미지로 들어가서 동작을 확인할 수 있습니다. 
+Docker 이미지의 설치 라이브러리가 학습 환경과 다른 경우에 정상적으로 동작하지 않을수 있습니다. 이를 로그를 통해 확인할 수 있지만, 아래와 같이 docker 이미지로 직접 들어가서 동작을 확인할 수 있습니다. 
 
-아래와 같이 docker 소스로 이동하여 이미지를 빌드합니다. 
+Docker 소스로 이동하여 이미지를 빌드합니다. 
 
 ```java
 cd src
@@ -108,13 +108,13 @@ docker build -t inference:v1 .
 docker images
 ```
 
-docker를 실행합니다. 
+Docker를 실행합니다. 
 ```java
 docker run -d -p 8080:8080 inference:v1
 ```
 
 
-docker의 실행된 container 정보를 확인합니다. 
+Docker의 실행된 container 정보를 확인합니다. 
 
 ```java
 docker ps
