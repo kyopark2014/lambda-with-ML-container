@@ -1,4 +1,4 @@
-# Container를 이용하여 Lambda로 ML inference 구현하기 
+# Container를 이용하여 Lambda로 ML Inference 구현하기 
 
 
 ## Wine Quality을 측정하는 머신러닝 알고리즘 
@@ -55,7 +55,11 @@ CMD ["inference.handler"]
 
 ### 추론 수행 
 
-아래와 같이 client로 
+아래와 같이 client로 Node와 Postman을 활용할 수 있습니다.
+
+#### Node 사용
+
+#### Postman 사용 
 
 
 
