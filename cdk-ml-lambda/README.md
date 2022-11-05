@@ -10,7 +10,7 @@ Lambda를 이용한 ML inference 인프라를 [AWS CDK](https://github.com/kyopa
 cdk init app --language typescript
 ```
 
-아래와 같이 bootstrap을 수행합니다. 환경에 따라 1회만 수행하면 됩니다. 
+아래와 같이 bootstrap을 수행합니다. 1회만 수행하면 됩니다. 
 
 ```java
 cdk bootstrap aws://123456789012/ap-northeast-2
