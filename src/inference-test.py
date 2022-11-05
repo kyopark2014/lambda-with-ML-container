@@ -9,7 +9,10 @@ def load_event():
 
     json_data = json_file.to_json(orient='records')
 
-    event = {'body': json_data}
+    event = {
+        'body': json_data,
+        'isBase64Encoded': False
+    }
     print('event: ', event)
 
     return event
@@ -38,6 +41,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
