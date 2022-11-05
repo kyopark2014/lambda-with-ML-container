@@ -62,7 +62,68 @@ CMD ["inference.handler"]
 #### Postman 사용 
 
 
+## Image Testing
 
+Docker를 위해 빌드된 이미지의 조건이 학습시의 Local 또는 Sagemaker등의 환경과 다른 경우에 빌드후에 정상적으로 동작하지 않을수 있습니다. 이를 로그를 통해 확인할 수 있지만, 아래와 같이 docker 이미지로 들어가서 동작을 확인할 수 있습니다. 
+
+아래와 같이 먼저 docker 소스로 이동하여 이미지를 빌드합니다. 
+
+```java
+cd src
+docker build -t inference:v1 .
+```
+
+빌드된 이미지를 확인합니다. 
+
+```java
+docker images
+```
+
+docker를 실행합니다. 
+```java
+docker run -d -p 8080:8080 inference:v1
+```
+
+
+docker의 실행된 container 정보를 확인합니다. 
+
+```java
+docker ps
+```
+
+아래와 같이 Container ID를 확인 할 수 있습니다. 
+
+```java
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                    NAMES
+41e297948511   inference:v1   "/lambda-entrypoint.…"   6 seconds ago   Up 4 seconds   0.0.0.0:8080->8080/tcp   stupefied_carson
+```
+
+아래와 같이 Bash shell로 접속합니다. 
+
+```java
+docker exec -it  41e297948511 /bin/bash
+```
+
+아래와 같이 "python3 inference-test.py"를 입력하여 정상적으로 동작하는지 확인합니다. 
+
+```java
+bash-4.2# python3 inference-test.py
+np version:  1.23.4
+pandas version:  1.5.1
+xgb version:  1.6.2
+event:  {'body': '[{"fixed acidity":6.6,"volatile acidity":0.24,"citric acid":0.28,"residual sugar":1.8,"chlorides":0.028,"free sulfur dioxide":39,"total sulfur dioxide":132,"density":0.99182,"pH":3.34,"sulphates":0.46,"alcohol":11.4,"color_red":0,"color_white":1},{"fixed acidity":8.7,"volatile acidity":0.78,"citric acid":0.51,"residual sugar":1.7,"chlorides":0.415,"free sulfur dioxide":12,"total sulfur dioxide":66,"density":0.99623,"pH":3.0,"sulphates":1.17,"alcohol":9.2,"color_red":1,"color_white":0}]'}
+body:  [{"fixed acidity":6.6,"volatile acidity":0.24,"citric acid":0.28,"residual sugar":1.8,"chlorides":0.028,"free sulfur dioxide":39,"total sulfur dioxide":132,"density":0.99182,"pH":3.34,"sulphates":0.46,"alcohol":11.4,"color_red":0,"color_white":1},{"fixed acidity":8.7,"volatile acidity":0.78,"citric acid":0.51,"residual sugar":1.7,"chlorides":0.415,"free sulfur dioxide":12,"total sulfur dioxide":66,"density":0.99623,"pH":3.0,"sulphates":1.17,"alcohol":9.2,"color_red":1,"color_white":0}]
+
+values:     fixed acidity  volatile acidity  citric acid  residual sugar  chlorides  ...    pH  sulphates  alcohol  color_red  color_white
+0            6.6              0.24         0.28             1.8      0.028  ...  3.34       0.46     11.4          0            1
+1            8.7              0.78         0.51             1.7      0.415  ...  3.00       1.17      9.2          1            0
+
+[2 rows x 13 columns]
+result: [6.573914 4.869721]
+200
+[6.573914051055908, 4.869720935821533]
+Elapsed time: 0.25s
+```
 
 ## Reference 
 
