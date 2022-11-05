@@ -28,13 +28,13 @@ Wine Quality을 예측하기 위해 XGBoost 알고리즘에 기반한 머신러�
 
 Wine Quality을 예측을 위해 머신러닝 알고리즘 Lambda에 활용하기 위해서는 [inference.py](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/inference.py)와 학습된 모델인 [xgboost_wine_quality.json](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/xgboost_wine_quality.json)을 이용하여 Docker image를 생성한 후에 Lambda에서 활용하여야 합니다. 
 
-### 인프라 설치 및 삭제
+## 인프라 설치 및 삭제
 
 [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)는 대표적인 IaC(Infrastructure as Code) 툴로서, Docker Image를 빌드하고 [Amazon ECR](https://aws.amazon.com/ko/ecr/)에 업로드한 후 Lambda에서 활용할 수 있습니다. 또한, Lambda를 생성된 추론용 Rest API를 외부에서 접속할 수 있도록 [Lambda Functional URL](https://github.com/kyopark2014/lambda-function-url)을 활용합니다. 
 
 [AWS CDK로 머신러닝 추론을 위한 Lambda Functional URL 구현하기](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda)에서는 CDK를 이용해 Lambda를 Functional URL로 구성하고 인프라 설치 및 삭제를 수행합니다.
 
-#### Dockerfile
+### Dockerfile
 
 [Dockerfile](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/Dockerfile)은 아래와 같이 AWS Lambda와 Python 3.8 위하여 AWS에서 제공하는 이미지를 활용합니다. 먼저 pip, joblib, scikit-learn등 필수 라이브러리를 설치하고, directory를 지정하고, 필요한 파일들을 복사합니다. 또한 [requirements.txt](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/requirements.txt)에 따라 필요한 라이브러리를 버전에 맞추어 설치합니다. 여기서는 [inference.py](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/inference.py)의 handler()를 이용해 추론(inference)를 수행합니다. 이때 사용하는 모델은 [Wine Quality (Regression)](https://github.com/kyopark2014/ML-xgboost/tree/main/wine-quality)에서 학습시킨 [xgboost_wine_quality.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/xgboost_wine_quality.json)입니다. 
 
@@ -58,11 +58,11 @@ CMD ["inference.handler"]
 
 
 
-### 추론 요청
+## 클라이언트에서 추론 요청
 
 아래와 같이 Node로 만들 클라이언트 및 Postman에서 추론 요청을 시험해 볼수 있습니다. [Endpoint 주소](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda#endpoint-address)는 CDK로 인프라 생성할때 확인 할 수 있지만, Lambda Console 메뉴의 "Function URL"에서도 확인 가능합니다. 또한 테스트용 셈플은 [samples.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/samples.json)을 이용합니다. 
 
-#### Node 사용시
+### Node 사용시
 
 아래와 같이 node.js를 이용해서 client에서 추론 API를 시험할 수 있습니다. 이 [클라이언트](https://github.com/kyopark2014/lambda-function-url/tree/main/client)는 AWS SDK에서 제공하는 [temporary Security Credential](https://github.com/kyopark2014/aws-security-token-service)을 이용하여 안전하게 IAM 인증을 하고 있습니다. 
 
@@ -78,7 +78,7 @@ const domain = 'samplet4zi2bqfx6k42fo26agi0kcght.lambda-url.ap-northeast-2.on.aw
 const roleArn = 'arn:aws:iam::1234567890:role/CdkMlLambdaStack-fnUrlRoleF3FB2EB9-1H0ZW8VRW5AM3';
 ```
 
-#### Postman 사용시 
+### Postman 사용시 
 
 
 아래와 같이 POST method로 [Endpoint 주소](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda#endpoint-address)를 넣어주고, Body에 raw포맷으로 [samples.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/samples.json)을 입력한후 [Send]를 선택합니다. 
