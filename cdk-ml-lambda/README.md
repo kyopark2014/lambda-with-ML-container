@@ -43,7 +43,7 @@ aws sts get-caller-identity --query Account --output text
 
 ### Lambda Function URL 생성
 
-Lambda를 외부에서 접속할 수 있도록 Endpoint로 지정합니다. 이때 Role을 아래와 같이 설정합니다.  
+Lambda를 외부에서 접속할 수 있도록 Endpoint로 지정합니다. 이때 Role을 아래와 같이 설정하고 Role 이름도 확인합니다. Role 이름은 client에서 사용합니다.  
 
 ```java
     const fnUrlRole = new iam.Role(this, 'fnUrlRole', {
@@ -53,7 +53,19 @@ Lambda를 외부에서 접속할 수 있도록 Endpoint로 지정합니다. 이�
     
     // apply the defined role
     fnUrl.grantInvokeUrl(fnUrlRole);
+    
+    // check the arn of funtion url role
+    new cdk.CfnOutput(this, 'fnUrlRoleArn', {
+      value: fnUrlRole.roleArn,
+      description: 'The arn of funtion url role',
+    });      
 ```    
+
+이때 얻어진 Role ARN은 아래와 같습니다.
+
+```java
+CdkMlLambdaStack.fnUrlRoleArn = arn:aws:iam::123456789012:role/CdkMlLambdaStack-fnUrlRoleF3FB2EB9-1H0ZW8VRW5AM3
+```
 
 ### Endpoint Address
 
