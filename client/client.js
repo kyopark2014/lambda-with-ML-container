@@ -16,22 +16,14 @@ aws.config.getCredentials(function(err) {
 });
 console.log("current credentials: %j", aws.config.credentials);
 
-const domain = 'j5qx4waffduqrenxplzd7zdbne0coxgp.lambda-url.ap-northeast-2.on.aws';
-const roleArn = 'arn:aws:iam::677146750822:role/CdkLambdaStack-fnUrlRoleF3FB2EB9-1DUX7O5K3EOQ3';
+const domain = 'samplet4zi2bqfx6k42fo26agi0kcght.lambda-url.ap-northeast-2.on.aws';
+const roleArn = 'arn:aws:iam::1234567890:role/CdkMlLambdaStack-fnUrlRoleF3FB2EB9-1H0ZW8VRW5AM3';
 const region = 'ap-northeast-2';
 const myMethod = 'POST';
 const myPath = '/';
 
-let input = [
-    {
-        "user-id":"a0001",
-        "name":"John"
-    },
-    {
-        "user-id":"a0002",
-        "name":"David"
-    }
-];
+let input = [{"fixed acidity":6.6,"volatile acidity":0.24,"citric acid":0.28,"residual sugar":1.8,"chlorides":0.028,"free sulfur dioxide":39.0,"total sulfur dioxide":132.0,"density":0.99182,"pH":3.34,"sulphates":0.46,"alcohol":11.4,"color_red":0,"color_white":1},{"fixed acidity":8.7,"volatile acidity":0.78,"citric acid":0.51,"residual sugar":1.7,"chlorides":0.415,"free sulfur dioxide":12.0,"total sulfur dioxide":66.0,"density":0.99623,"pH":3.0,"sulphates":1.17,"alcohol":9.2,"color_red":1,"color_white":0}];
+
 const body = JSON.stringify(input);
 
 const run = async () => {
