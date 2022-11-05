@@ -3,7 +3,7 @@
 
 ## 머신러닝 알고리즘 
 
-Wine Quality을 예측하기 위해 XGBoost 알고리즘에 기반한 머신러닝을 이용합니다.
+Wine Quality을 예측하기 위해 [XGBoost 알고리즘](https://github.com/kyopark2014/ML-Algorithms/blob/main/xgboost.md)에 기반한 머신러닝을 이용합니다.
 
 1) 데이터의 준비
 
