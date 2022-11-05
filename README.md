@@ -19,7 +19,7 @@
 
 4) Inference
 
-학습된 모델을 이용하여 [inference.py](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/inference.py)와 같이 추론(Inference)을 수행할 수 있습니다.
+학습된 모델을 이용하여 [inference.py](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/inference.py)와 같이, 추론(Inference)을 수행할 수 있습니다.
 
 
 ## Lambda를 이용한 추론(Inference) 시스템 구성
