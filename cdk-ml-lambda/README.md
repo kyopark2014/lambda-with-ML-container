@@ -1,4 +1,4 @@
-# AWS CDK 구성
+# AWS CDK로 머신러닝 추론을 위한 Lambda Functional URL 구현하기
 
 Lambda를 이용한 ML inference 인프라를 [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)를 이용해 구성합니다.
 
