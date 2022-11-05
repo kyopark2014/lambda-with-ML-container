@@ -62,6 +62,20 @@ CMD ["inference.handler"]
 
 #### Node 사용시
 
+아래와 같이 node.js를 이용해서 client에서 추론 API를 시험할 수 있습니다. 이 [클라이언트](https://github.com/kyopark2014/lambda-function-url/tree/main/client)는 AWS SDK에서 제공하는 [temporary Security Credential](https://github.com/kyopark2014/aws-security-token-service)을 이용하여 안전하게 IAM 인증을 하고 있습니다. 
+
+```java
+cd client
+node client.js
+```
+
+[client.js](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/client/client.js)에서 아래 값은 Lambda functional url의 Endpoint와 Role ARN을 입력하여야 합니다. 
+
+```java
+const domain = 'samplet4zi2bqfx6k42fo26agi0kcght.lambda-url.ap-northeast-2.on.aws';
+const roleArn = 'arn:aws:iam::1234567890:role/CdkMlLambdaStack-fnUrlRoleF3FB2EB9-1H0ZW8VRW5AM3';
+```
+
 #### Postman 사용시 
 
 
