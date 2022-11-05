@@ -50,7 +50,7 @@ RUN pip install -r requirements.txt
 CMD ["inference.handler"]
 ```
 
-Dockerfile로 Docker image를 생성한 후에 Lambda에서 해당 이미지를 로드하여 추론을 수행합니다. [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)는 대표적인 IaC(Infrastructure as Code) 툴로서, Docker Image를 빌드하고 [Amazon ECR](https://aws.amazon.com/ko/ecr/)에 업로드한 후 Lambda에서 활용할 수 있습니다. 또한, Lambda를 생성된 추론용 Rest API를 외부에서 접속할 수 있도록 [Lambda Functional URL](https://github.com/kyopark2014/lambda-function-url)을 활용합니다.
+Dockerfile로 Docker image를 생성한 후에 Lambda에서 해당 이미지를 로드하여 추론을 수행합니다. [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)는 대표적인 IaC(Infrastructure as Code) 툴로서, Docker Image를 빌드하고 [Amazon ECR](https://aws.amazon.com/ko/ecr/)에 업로드한 후 Lambda에서 활용할 수 있습니다. 또한, Lambda를 생성된 추론용 API를 외부에서 접속할 수 있도록 [Lambda Functional URL](https://github.com/kyopark2014/lambda-function-url)을 활용합니다.
 
 [AWS CDK로 머신러닝 추론을 위한 Lambda Functional URL 구현하기](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda)에서는 CDK를 이용하여 인프라의 설치 및 삭제를 수행하는 과정을 설명하고 있습니다. 
 
