@@ -64,6 +64,7 @@ Lambda를 외부에서 접속할 수 있도록 Endpoint로 지정합니다. 이�
 이때 얻어진 Role ARN은 아래와 같습니다.
 
 ```java
+Outputs:
 CdkMlLambdaStack.fnUrlRoleArn = arn:aws:iam::123456789012:role/CdkMlLambdaStack-fnUrlRoleF3FB2EB9-1H0ZW8VRW5AM3
 ```
 
