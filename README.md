@@ -1,4 +1,4 @@
-# Lambda로 XGBoost  ML Inference 구현하기 
+# Lambda로 XGBoost 방식의 ML Inference 구현하기 
 
 
 ## 머신러닝 알고리즘 
