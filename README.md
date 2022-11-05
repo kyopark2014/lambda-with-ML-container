@@ -85,7 +85,7 @@ const roleArn = 'arn:aws:iam::1234567890:role/CdkMlLambdaStack-fnUrlRoleF3FB2EB9
 
 ![image](https://user-images.githubusercontent.com/52392004/200112042-6e2fd684-706d-4e72-8481-688355d6003e.png)
 
-현재 Lambda Function URL이 IAM인증을 사용하고 있으므로, 아래와 같이 AccessKey, SecretKey와 Resion 및 Service Name을 설정합니다. 
+현재 Lambda Function URL이 IAM인증을 사용하고 있으므로, 아래와 같이 AccessKey, SecretKey와 Region 및 Service Name을 설정합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/200112129-79827440-fa33-4278-83bb-f95cbfcca247.png)
 
