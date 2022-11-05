@@ -1,6 +1,5 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
 import * as path from "path";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as iam from "aws-cdk-lib/aws-iam";
@@ -18,7 +17,6 @@ export class CdkMlLambdaStack extends cdk.Stack {
     }); 
 
     // Lambda function url for simple endpoint
-// define funtional url
     const fnUrl = mlLambda.addFunctionUrl({
       authType: lambda.FunctionUrlAuthType.AWS_IAM // NONE,
     });
