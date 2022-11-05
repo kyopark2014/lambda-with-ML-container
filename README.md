@@ -53,7 +53,7 @@ CMD ["inference.handler"]
 
 ### 인프라 설치 및 삭제
 
-[CDK ML Lambda](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda)에서는 CDK를 이용해 Lambda를 Functional URL로 구현하는것에 대해 설명하고 있습니다.
+[CDK ML Lambda](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda)에서는 CDK를 이용해 Lambda를 Functional URL로 구성하고 인프라 설치 및 삭제를 수행합니다.
 
 
 ### 추론 수행 
