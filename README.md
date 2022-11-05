@@ -30,7 +30,7 @@ Wine Quality을 예측을 위해 머신러닝 알고리즘 Lambda에 활용하�
 
 [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)는 대표적인 IaC(Infrastructure as Code) 툴로서, Docker Image를 빌드하고 [Amazon ECR](https://aws.amazon.com/ko/ecr/)에 업로드한 후 Lambda에서 활용할 수 있습니다. 또한, Lambda를 생성된 추론용 Rest API를 외부에서 접속할 수 있도록 [Lambda Functional URL](https://github.com/kyopark2014/lambda-function-url)을 활용합니다. 
 
-### Docker Image 설정 
+### Dockerfile
 
 Dockerfile은 아래와 같이 AWS Lambda를 이용한 Python 3.8용 이미지를 활용합니다. 먼저 joblib, scikit-learn등 필수 라이브러리를 설치하고, directory를 지정하고, 필요한 파일들을 복사합니다. 또한 [requirements.txt](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/requirements.txt)에 따라 필요한 라이브러리를 버전에 맞추어 설치합니다. 여기서는 실행하는 python 파일이 [inference.py](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/inference.py)로서, handler()를 통해 inference를 수행하도록 합니다. 이때 사용하는 모델은 [xgboost_wine_quality.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/xgboost_wine_quality.json)입니다. 
 
