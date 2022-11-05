@@ -24,7 +24,7 @@
 
 ## Lambda를 이용한 추론(Inference) 시스템 구성
 
-대표적인 서버리스 서비스인 Lambda는 운영에 대한 부담을 줄여주고 사용한 만큼만 지불(Pay As You Go)할 수 있어서 다양한 어플리케이션에서 유용하게 활용되고 있습니다. 특히, 2020년 12월부터 [Lambda가 Container이미지를 지원](https://aws.amazon.com/ko/blogs/korea/new-for-aws-lambda-container-image-support/)함으로써, Lambda를 머신러닝(Machine Learning)에도 유용하게 사용할 수 있게 되었습니다. 여기서는 Lambda를 머신러닝 추론(Inference)에 활용하고자 합니다. 
+대표적인 서버리스 서비스인 Lambda는 운영에 대한 부담을 줄여주고 사용한 만큼만 지불(Pay As You Go)할 수 있어서 다양한 어플리케이션에서 유용하게 활용되고 있습니다. 특히, 2020년 12월부터 [Lambda가 Container이미지를 지원](https://aws.amazon.com/ko/blogs/korea/new-for-aws-lambda-container-image-support/)함으로써, Lambda를 머신러닝(Machine Learning)에도 유용하게 사용할 수 있게 되었습니다. 여기서는 [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)를 이용하여, Lambda에서 머신러닝 추론을 수행하고, 외부에서 접속할 수 있는 추론 API를 생성합니다. 또한, AWS IAM 인증을 이용한 클라이언트로 안전하게 추론 API를 호출할 수 있습니다. 
 
 Wine Quality을 예측을 위해 머신러닝 알고리즘 Lambda에 활용하기 위해서는 [inference.py](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/inference.py)와 학습된 모델인 [xgboost_wine_quality.json](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/xgboost_wine_quality.json)을 이용하여 Docker image를 생성한 후에 Lambda에서 활용하여야 합니다. 
 
