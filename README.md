@@ -49,6 +49,13 @@ RUN pip install -r requirements.txt
 CMD ["inference.handler"]
 ```
 
+### 인프라 설치
+
+[CDK ML Lambda](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda)에서는 CDK를 이용해 Lambda를 Functional URL로 구현하는것에 대해 설명하고 있습니다.
+
+### 추론 수행 
+
+아래와 같이 client로 
 
 
 
