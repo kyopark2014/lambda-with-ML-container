@@ -1,7 +1,9 @@
 # Lambda로 XGBoost를 위한 ML Inference 구현하기 
 
 
-## Wine Quality을 측정하는 머신러닝 알고리즘 
+## 머신러닝 알고리즘 
+
+여기서는 Wine Quality을 예측하는 머신러닝 알고리즘을 이용하여, 추론(Inference) 인프라를 구축합니다. 
 
 1) 데이터의 준비
 
