@@ -62,7 +62,7 @@ CMD ["inference.handler"]
 #### Postman 사용 
 
 
-아래와 같이 POST method로 [Endpoint 주소](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda#endpoint-address)를 넣어주고, Body에 raw포맷으로 [samples.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/samples.json)을 입력합니다. 
+아래와 같이 POST method로 [Endpoint 주소](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda#endpoint-address)를 넣어주고, Body에 raw포맷으로 [samples.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/samples.json)을 입력한후 [Send]를 선택합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/200112042-6e2fd684-706d-4e72-8481-688355d6003e.png)
 
