@@ -1,6 +1,6 @@
 # AWS CDK 구성
 
-[AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)로 lambda로 ML inference를 할수 있도록 인프라를 구성합니다.
+Lambda를 이용한 ML inference 인프라를 [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)를 이용해 구성합니다.
 
 ## 기본 설정
 
