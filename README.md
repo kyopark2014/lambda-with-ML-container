@@ -55,11 +55,21 @@ CMD ["inference.handler"]
 
 ### 추론 수행 
 
-아래와 같이 client로 Node와 Postman을 활용할 수 있습니다.
+아래와 같이 client로 Node와 Postman을 활용할 수 있습니다. [Endpoint 주소](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda#endpoint-address)와 같이 CDK로 인프라 생성시 주소를 확인 할 수 있고, lambda의 "Function URL"에서도 확인 가능합니다. 또한 테스트용 셈플은 [samples.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/samples.json)을 이용합니다. 
 
 #### Node 사용
 
 #### Postman 사용 
+
+
+아래와 같이 POST method로 [Endpoint 주소](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda#endpoint-address)를 넣어주고, Body에 raw포맷으로 [samples.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/samples.json)을 입력합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/200112042-6e2fd684-706d-4e72-8481-688355d6003e.png)
+
+현재 Lambda Function URL이 IAM인증을 사용하고 있으므로, 아래와 같이 AccessKey, SecretKey와 Resion 및 Service Name을 설정합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/200112129-79827440-fa33-4278-83bb-f95cbfcca247.png)
+
 
 
 ## Image Testing
