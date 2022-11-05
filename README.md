@@ -1,5 +1,8 @@
 # Lambda로 XGBoost를 위한 ML Inference 구현하기 
 
+[XGBoost](https://github.com/kyopark2014/ML-Algorithms/blob/main/xgboost.md)는 빠르고 정확한 머신러닝 알고리즘일뿐 아니라, [분류(Classficiation)](https://github.com/kyopark2014/ML-Algorithms/blob/main/classification.md)와 [회귀(Regression)](https://github.com/kyopark2014/ML-Algorithms/blob/main/regression.md)문제에 모두 적용할 수 있어서 널리 활용되어 지고 있습니다. 
+
+대표적인 서버리스 서비스인 Lambda는 운영에 대한 부담을 줄여주고 사용한 만큼만 지불(Pay As You Go)할 수 있어서 다양한 어플리케이션에서 유용하게 활용되고 있습니다. 특히, 2020년 12월부터 [Lambda가 Container이미지를 지원](https://aws.amazon.com/ko/blogs/korea/new-for-aws-lambda-container-image-support/)함으로써, Lambda를 머신러닝(Machine Learning)에도 유용하게 사용할 수 있게 되었습니다. 여기서는 [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)를 이용하여, Lambda에서 머신러닝 추론을 수행하고, 외부에서 접속할 수 있는 추론 API를 생성합니다. 또한, AWS IAM 인증을 이용한 클라이언트로 안전하게 추론 API를 호출할 수 있습니다. 
 
 ## 머신러닝 알고리즘 
 
@@ -24,17 +27,9 @@
 
 ## Lambda를 이용한 추론(Inference) 시스템 구성
 
-대표적인 서버리스 서비스인 Lambda는 운영에 대한 부담을 줄여주고 사용한 만큼만 지불(Pay As You Go)할 수 있어서 다양한 어플리케이션에서 유용하게 활용되고 있습니다. 특히, 2020년 12월부터 [Lambda가 Container이미지를 지원](https://aws.amazon.com/ko/blogs/korea/new-for-aws-lambda-container-image-support/)함으로써, Lambda를 머신러닝(Machine Learning)에도 유용하게 사용할 수 있게 되었습니다. 여기서는 [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)를 이용하여, Lambda에서 머신러닝 추론을 수행하고, 외부에서 접속할 수 있는 추론 API를 생성합니다. 또한, AWS IAM 인증을 이용한 클라이언트로 안전하게 추론 API를 호출할 수 있습니다. 
+[inference.py](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/inference.py)에서는 기학습된 XGBoost 모델인 [xgboost_wine_quality.json](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/xgboost_wine_quality.json)을 이용하여 추론을 수행할 수 있습니다. 이를 Docker를 이용해 Lambda에서 실행하기 위해서는 아래와 같이 Dockerfile을 생성하여야 합니다. 
 
-Wine Quality을 예측을 위해 머신러닝 알고리즘 Lambda에 활용하기 위해서는 [inference.py](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/inference.py)와 학습된 모델인 [xgboost_wine_quality.json](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/xgboost_wine_quality.json)을 이용하여 Docker image를 생성한 후에 Lambda에서 활용하여야 합니다. 
-
-## 인프라 설치 및 삭제
-
-[AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)는 대표적인 IaC(Infrastructure as Code) 툴로서, Docker Image를 빌드하고 [Amazon ECR](https://aws.amazon.com/ko/ecr/)에 업로드한 후 Lambda에서 활용할 수 있습니다. 또한, Lambda를 생성된 추론용 Rest API를 외부에서 접속할 수 있도록 [Lambda Functional URL](https://github.com/kyopark2014/lambda-function-url)을 활용합니다. 
-
-[AWS CDK로 머신러닝 추론을 위한 Lambda Functional URL 구현하기](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda)에서는 CDK를 이용해 Lambda를 Functional URL로 구성하고 인프라 설치 및 삭제를 수행합니다.
-
-### Dockerfile
+#### Dockerfile
 
 [Dockerfile](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/Dockerfile)은 아래와 같이 AWS Lambda와 Python 3.8 위하여 AWS에서 제공하는 이미지를 활용합니다. 먼저 pip, joblib, scikit-learn등 필수 라이브러리를 설치하고, directory를 지정하고, 필요한 파일들을 복사합니다. 또한 [requirements.txt](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/requirements.txt)에 따라 필요한 라이브러리를 버전에 맞추어 설치합니다. 여기서는 [inference.py](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/inference.py)의 handler()를 이용해 추론(inference)를 수행합니다. 이때 사용하는 모델은 [Wine Quality (Regression)](https://github.com/kyopark2014/ML-xgboost/tree/main/wine-quality)에서 학습시킨 [xgboost_wine_quality.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/xgboost_wine_quality.json)입니다. 
 
@@ -55,6 +50,9 @@ RUN pip install -r requirements.txt
 CMD ["inference.handler"]
 ```
 
+Dockerfile로 Docker image를 생성한 후에 Lambda에서 해당 이미지를 로드하여 추론을 수행합니다. [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)는 대표적인 IaC(Infrastructure as Code) 툴로서, Docker Image를 빌드하고 [Amazon ECR](https://aws.amazon.com/ko/ecr/)에 업로드한 후 Lambda에서 활용할 수 있습니다. 또한, Lambda를 생성된 추론용 Rest API를 외부에서 접속할 수 있도록 [Lambda Functional URL](https://github.com/kyopark2014/lambda-function-url)을 활용합니다.
+
+[AWS CDK로 머신러닝 추론을 위한 Lambda Functional URL 구현하기](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda)에서는 CDK를 이용하여 인프라의 설치 및 삭제를 수행하는 과정을 설명하고 있습니다. 
 
 
 
