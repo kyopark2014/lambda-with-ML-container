@@ -79,7 +79,7 @@ CdkMlLambdaStack.fnUrlRoleArn = arn:aws:iam::123456789012:role/CdkMlLambdaStack-
     });
 ```    
 
-이때의 결과는 아래와 같습니다. client에서 접속하는 주소는 "https://samplet4zi2bqfx6k42fo26agi0kcght.lambda-url.ap-northeast-2.on.aws/" 입니다.
+이때의 결과는 아래와 같습니다. client에서 접속하는 주소는 "samplet4zi2bqfx6k42fo26agi0kcght.lambda-url.ap-northeast-2.on.aws" 입니다.
 
 ```java
 Outputs:
