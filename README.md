@@ -69,7 +69,7 @@ cd client
 node client.js
 ```
 
-[client.js](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/client/client.js)에서 아래 값은 Lambda functional url의 Endpoint와 Role ARN을 입력하여야 합니다. 
+[client.js](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/client/client.js)에서 아래 값은 Lambda functional url의 [Endpoint](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda#endpoint-address)와 Role ARN을 입력하여야 합니다. 
 
 ```java
 const domain = 'samplet4zi2bqfx6k42fo26agi0kcght.lambda-url.ap-northeast-2.on.aws';
