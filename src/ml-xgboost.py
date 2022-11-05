@@ -1,12 +1,16 @@
 # package import
 import numpy as np
-
+import pandas as pd
 from xgboost import XGBRegressor
 
 def handler(event, context):
-    #body = event["body-json"]
-    #print('body: ', body)
-    print('body: ', event)
+    print('event: ', event)
+
+    body = event['body']
+    print('body: ', body)
+
+    values = pd.read_json((body))
+    print('\nvalues: ',values)
 
     # load model    
     model = XGBRegressor()
@@ -16,9 +20,10 @@ def handler(event, context):
     print("model: ", model_name)
 
     model.load_model(model_name)
+    print("The Model was loaded")
 
     # inference
-    results = model.predict(body)
+    results = model.predict(values)
     print('result:', results)
 
     return {
