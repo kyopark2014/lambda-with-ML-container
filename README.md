@@ -59,9 +59,9 @@ CMD ["inference.handler"]
 
 아래와 같이 client로 Node와 Postman을 활용할 수 있습니다. [Endpoint 주소](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda#endpoint-address)와 같이 CDK로 인프라 생성시 주소를 확인 할 수 있고, lambda의 "Function URL"에서도 확인 가능합니다. 또한 테스트용 셈플은 [samples.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/samples.json)을 이용합니다. 
 
-#### Node 사용
+#### Node 사용시
 
-#### Postman 사용 
+#### Postman 사용시 
 
 
 아래와 같이 POST method로 [Endpoint 주소](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda#endpoint-address)를 넣어주고, Body에 raw포맷으로 [samples.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/samples.json)을 입력한후 [Send]를 선택합니다. 
