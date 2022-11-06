@@ -16,6 +16,13 @@ export class CdkMlLambdaStack extends cdk.Stack {
       timeout: cdk.Duration.seconds(30),
     }); 
 
+    // version
+    const version = mlLambda.currentVersion;
+    const alias = new lambda.Alias(this, 'LambdaAlias', {
+      aliasName: 'Dev',
+      version,
+    });
+
     // Lambda function url for simple endpoint
     const fnUrl = mlLambda.addFunctionUrl({
       authType: lambda.FunctionUrlAuthType.AWS_IAM // NONE,
