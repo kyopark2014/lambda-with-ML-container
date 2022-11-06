@@ -68,6 +68,21 @@ Outputs:
 CdkMlLambdaStack.fnUrlRoleArn = arn:aws:iam::123456789012:role/CdkMlLambdaStack-fnUrlRoleF3FB2EB9-1H0ZW8VRW5AM3
 ```
 
+또한, 아래와 같이 version과 alias를 지정할 수 있습니다. deploy를 다시 할때마다 version은 1씩 증가합니다. 
+
+```python
+    const version = mlLambda.currentVersion;
+    const alias = new lambda.Alias(this, 'LambdaAlias', {
+      aliasName: 'Dev',
+      version,
+    });
+```    
+
+아래와 같이 설정되었음을 알수 있습니다.
+
+![image](https://user-images.githubusercontent.com/52392004/200200515-68d6a553-cedf-48c7-9845-b64e6c6948b1.png)
+
+
 ### Endpoint Address
 
 외부에서 접속시 사용할 Endpoint 주소를 아래와 같이 확인합니다. 
@@ -78,6 +93,7 @@ CdkMlLambdaStack.fnUrlRoleArn = arn:aws:iam::123456789012:role/CdkMlLambdaStack-
       description: 'The endpoint of Lambda Function URL',
     });
 ```    
+
 
 이때의 결과는 아래와 같습니다. client에서 접속하는 주소는 "samplet4zi2bqfx6k42fo26agi0kcght.lambda-url.ap-northeast-2.on.aws" 입니다.
 
