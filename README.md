@@ -37,7 +37,7 @@
 
 [inference.py](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/inference.py)에서는 기학습된 XGBoost 모델인 [xgboost_wine_quality.json](https://github.com/kyopark2014/ML-xgboost/blob/main/wine-quality/src/xgboost_wine_quality.json)을 이용하여 추론을 수행할 수 있습니다. 이를 Docker를 이용해 Lambda에서 실행하기 위해서는 아래와 같이 Dockerfile을 생성하여야 합니다. 
 
-#### Dockerfile
+### Docker Image 준비
 
 [Dockerfile](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/Dockerfile)은 아래와 같이 AWS Lambda와 Python 3.8 위하여 AWS에서 제공하는 이미지를 활용합니다. 먼저 pip, joblib, scikit-learn등 필수 라이브러리를 설치하고, directory를 지정하고, 필요한 파일들을 복사합니다. 또한 [requirements.txt](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/requirements.txt)에 따라 필요한 라이브러리를 버전에 맞추어 설치합니다. 여기서는 [inference.py](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/inference.py)의 handler()를 이용해 추론(inference)를 수행합니다. 이때 사용하는 모델은 [Wine Quality (Regression)](https://github.com/kyopark2014/ML-xgboost/tree/main/wine-quality)에서 학습시킨 [xgboost_wine_quality.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/xgboost_wine_quality.json)입니다. 
 
@@ -59,6 +59,8 @@ CMD ["inference.handler"]
 ```
 
 Dockerfile로 Docker image를 생성한 후에 Lambda에서 해당 이미지를 로드하여 추론을 수행합니다. [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)는 대표적인 IaC(Infrastructure as Code) 툴로서, Docker Image를 빌드하고 [Amazon ECR](https://aws.amazon.com/ko/ecr/)에 업로드한 후 Lambda에서 활용할 수 있습니다. 또한, Lambda를 생성된 추론용 API를 외부에서 접속할 수 있도록 [Lambda Functional URL](https://github.com/kyopark2014/lambda-function-url)을 활용합니다.
+
+### AWS CDK Deployment
 
 [AWS CDK로 머신러닝 추론을 위한 Lambda Functional URL 구현하기](https://github.com/kyopark2014/lambda-with-ML-container/tree/main/cdk-ml-lambda)에서는 CDK를 이용하여 인프라의 설치 및 삭제를 수행하는 과정을 설명하고 있습니다. 
 
