@@ -6,7 +6,7 @@
 
 전체적인 Architecture는 아래와 같습니다.
 
-<img width="703" alt="image" src="https://user-images.githubusercontent.com/52392004/200234411-0dfd38a1-fd31-4ebc-b17e-68df57fd219d.png">
+<img width="702" alt="image" src="https://user-images.githubusercontent.com/52392004/200234540-41f01c6c-3e90-4d25-8e60-eb0f39bcae91.png">
 
 학습(Training)을 통해 개발한 XGBoost 모델은 Docker 이미지 형태로 탑재되어, AWS Lambda를 통해 추론 API를 제공합니다. 디바이스와 같은 클라이언트는AWS IAM을 통해 보호되는 추론용 RESTful API를 이용해 추론을 수행할 수 있습니다. 모델이 변경이 될 경우에 AWS CDK를 통해 Docker 이미지로 빌드되고, Amazon ECR로 업로드하여, AWS Lambda에 배포됩니다. ![image](https://user-images.githubusercontent.com/52392004/200234447-d6b3d256-26bf-44b2-b503-edd18606f5d2.png)
 
