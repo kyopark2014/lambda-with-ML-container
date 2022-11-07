@@ -139,7 +139,7 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS   
 docker exec -it  41e297948511 /bin/bash
 ```
 
-이제 "python3 inference-test.py"와 같이 inference.py가 정상적으로 동작하는지 확인할 수 있습니다.
+이제 "python3 inference-test.py"와 같이 실행하여, inference.py가 정상적으로 동작하는지 확인할 수 있습니다.
 
 ```java
 bash-4.2# python3 inference-test.py
