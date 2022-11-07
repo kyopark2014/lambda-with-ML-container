@@ -139,7 +139,7 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS   
 docker exec -it  41e297948511 /bin/bash
 ```
 
-이제 "python3 inference-test.py"와 같이 실행하여, inference.py가 정상적으로 동작하는지 확인할 수 있습니다.
+[inference-test.py](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/inference-test.py)는 [samples.json](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/samples.json)을 로드하여 Lambda의 event와 동일한 input을 만든 후에, [inference.py](https://github.com/kyopark2014/lambda-with-ML-container/blob/main/src/inference.py)을 테스트합니다. 따라서, "python3 inference-test.py"와 같이 실행하여, inference.py가 정상적으로 동작하는지 확인할 수 있습니다.
 
 ```java
 bash-4.2# python3 inference-test.py
