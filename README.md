@@ -4,6 +4,14 @@
 
 여기서는 [AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)를 이용하여, Lambda에서 머신러닝 추론(Inference)을 수행하고, 외부에서 접속할 수 있는 추론 API를 생성합니다. 또한, AWS IAM 인증을 이용한 클라이언트를 이용하여 안전하게 추론 API를 호출할 수 있습니다. 
 
+전체적인 Architecture는 아래와 같습니다.
+
+<img width="703" alt="image" src="https://user-images.githubusercontent.com/52392004/200234411-0dfd38a1-fd31-4ebc-b17e-68df57fd219d.png">
+
+학습(Training)을 통해 개발한 XGBoost 모델은 Docker 이미지 형태로 탑재되어, AWS Lambda를 통해 추론 API를 제공합니다. 디바이스와 같은 클라이언트는AWS IAM을 통해 보호되는 추론용 RESTful API를 이용해 추론을 수행할 수 있습니다. 모델이 변경이 될 경우에 AWS CDK를 통해 Docker 이미지로 빌드되고, Amazon ECR로 업로드하여, AWS Lambda에 배포됩니다. ![image](https://user-images.githubusercontent.com/52392004/200234447-d6b3d256-26bf-44b2-b503-edd18606f5d2.png)
+
+
+
 ## 머신러닝 알고리즘 
 
 [Wine Quality을 예측](https://github.com/kyopark2014/ML-Algorithms/tree/main/kaggle/xgboost-wine-quality)하기 위해 [XGBoost 알고리즘](https://github.com/kyopark2014/ML-Algorithms/blob/main/xgboost.md)에 기반한 머신러닝을 이용합니다.
