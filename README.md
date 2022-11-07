@@ -99,7 +99,7 @@ const roleArn = 'arn:aws:iam::1234567890:role/CdkMlLambdaStack-fnUrlRoleF3FB2EB9
 
 ## Image Debugging
 
-Docker 이미지의 설치 라이브러리가 학습 환경과 다른 경우에 정상적으로 동작하지 않을수 있습니다. 이를 로그를 통해 확인할 수 있지만, 아래와 같이 docker 이미지로 직접 들어가서 동작을 확인할 수 있습니다. 
+Docker 이미지에 설치 라이브러리가 학습 환경과 다른 경우에 정상적으로 동작하지 않을수 있습니다. 이를 로그를 통해 확인할 수 있지만, 아래와 같이 docker 이미지로 직접 들어가서 동작을 확인할 수 있습니다. 
 
 Docker 소스로 이동하여 이미지를 빌드합니다. 
 
