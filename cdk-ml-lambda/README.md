@@ -10,6 +10,12 @@ Lambda를 이용한 ML inference 인프라를 [AWS CDK](https://github.com/kyopa
 cdk init app --language typescript
 ```
 
+아래와 같이 cdk v2을 설치합니다. 
+
+```java
+npm install -g aws-cdk-lib@latest
+```
+
 아래와 같이 bootstrap을 수행합니다. 1회만 수행하면 됩니다. 
 
 ```java
